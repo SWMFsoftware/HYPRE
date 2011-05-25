@@ -7,8 +7,8 @@ install:
 		./configure --without-fei \
 			CC=${COMPILE.c} CXX=${COMPILE.c}; \
 		make install
-	ln -s hypre-2.7.0b/src/lib .
-	ln -s hypre-2.7.0b/src/include .
+	ln -s hypre-2.7.0b/src/hypre/lib .
+	ln -s hypre-2.7.0b/src/hypre/include .
 
 distclean:
 	rm -rf hypre-2.7.0b lib include *~
