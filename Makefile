@@ -1,7 +1,9 @@
 include ../../Makefile.def
 include ../../Makefile.conf
 
-install:
+install: lib/libHYPRE.a
+
+lib/libHYPRE.a:
 	tar -xzf hypre-2.7.0b.tar.gz
 	cd hypre-2.7.0b/src; \
 		./configure --without-fei \
