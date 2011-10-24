@@ -6,6 +6,8 @@ install: lib/libHYPRE.a
 lib/libHYPRE.a:
 	tar -xzf hypre-2.7.0b.tar.gz
 	cd hypre-2.7.0b/src; \
+		mv configure configure.orig; \
+		cp ../../configure.hypre-2.7.0b.fixed configure; \
 		./configure --without-fei \
 			CC=${COMPILE.mpicc} CXX=${COMPILE.c}; \
 		make install
