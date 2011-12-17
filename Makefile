@@ -10,7 +10,7 @@ lib/libHYPRE.a:
 		cp ../../configure.hypre-2.7.0b.fixed configure; \
 		./configure --without-fei \
 			CC=${COMPILE.mpicc} CXX=${COMPILE.c}; \
-		make install
+		make -j4 install
 	ln -s hypre-2.7.0b/src/hypre/lib .
 	ln -s hypre-2.7.0b/src/hypre/include .
 
