@@ -4,6 +4,7 @@ include ../../Makefile.conf
 install: lib/libHYPRE.a
 
 lib/libHYPRE.a:
+	rm -rf hypre-2.7.0b lib include
 	tar -xzf hypre-2.7.0b.tar.gz
 	cd hypre-2.7.0b/src; \
 		mv configure configure.orig; \
@@ -11,8 +12,15 @@ lib/libHYPRE.a:
 		./configure --without-fei \
 			CC=${COMPILE.mpicc} CXX=${COMPILE.c}; \
 		make -j4 install
-	ln -s hypre-2.7.0b/src/hypre/lib .
-	ln -s hypre-2.7.0b/src/hypre/include .
+	mkdir lib include
+	cp hypre-2.7.0b/src/hypre/lib/* lib/
+	cp hypre-2.7.0b/src/hypre/include/* include/
 
 distclean:
-	rm -rf hypre-2.7.0b lib include *~
+	rm -rf hypre-2.7.0b *~
+
+uninstall: distclean
+	rm -rf lib include
+
+reinstall: uninstall
+	make install
