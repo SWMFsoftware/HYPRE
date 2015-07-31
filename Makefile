@@ -16,6 +16,8 @@ lib/libHYPRE.a:
 	cp hypre-2.7.0b/src/hypre/lib/* lib/
 	cp hypre-2.7.0b/src/hypre/include/* include/
 
+clean: cleanfiles
+
 distclean:
 	rm -rf hypre-2.7.0b *~
 
