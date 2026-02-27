@@ -6776,7 +6776,7 @@ if test "x${hypre_user_chose_cflags}" = "xno"
 then
    case "${CC}" in
       gcc|mpicc)
-        CFLAGS="-O2"
+        CFLAGS="-O2 -std=gnu17 -Wno-error=incompatible-pointer-types"
         ;;
       icc|mpiicc)
         CFLAGS="-O2"
